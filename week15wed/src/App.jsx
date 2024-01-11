@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes, Link } from "react-router-dom";
+import "./App.css"
+function About() {
+  return (
+    <div>
+      <Link to="/News">LINK UP</Link>
+      <h1>This is the About Component or object</h1>
+      <img src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    </div>
+  )
+}
+function Contact() {
+  return (
+    <div>
+      <Link to="/About">ABOUT THAT</Link>
+      <h1>Here's my info</h1>
+      <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    </div>
+  )
+}
 
-function App() {
-  const [count, setCount] = useState(0)
+function News() {
+  return (
+    <div>
+      <Link to="/Contact">CONTACT US</Link>
+      <h1>Bird is the Word</h1>
+      <img src="https://images.unsplash.com/photo-1555169062-013468b47731?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    </div>
+  )
+}
+
+export default function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/news" element={<News />} />
+      </Routes>
     </>
   )
 }
 
-export default App
+// path take string element takses an component (object)
+// <Link> 'to' is the attribute of link, used when connecting routes 
